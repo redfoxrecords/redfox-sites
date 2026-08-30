@@ -142,8 +142,13 @@
 
   /* releases */
   .release-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:1.5rem; margin-top:2rem;}
-  .release{border:1px solid var(--line); padding:1.3rem; transition:border-color .15s;}
+  .release{border:1px solid var(--line); padding:1.3rem; transition:border-color .15s; position:relative;}
   .release:hover{border-color:var(--gold);}
+  .release-tag{
+    display:inline-block; font-size:.7rem; letter-spacing:1px; text-transform:uppercase;
+    padding:.25rem .6rem; margin-bottom:.9rem; border:1px solid var(--gold); color:var(--gold);
+  }
+  .release-tag.next{border-color:var(--punk); color:var(--punk);}
   .release .cover{
     aspect-ratio:1/1; margin-bottom:1rem; overflow:hidden;
     background:linear-gradient(135deg, var(--punk), var(--gold));
@@ -270,22 +275,25 @@
       <p class="story-intro">Essas são as que conseguiram sair do computador.</p>
       <div class="release-grid">
         <div class="release">
-          <div class="cover"><img src="capa-preciso-de-atencao.png" alt="Capa de Preciso de Atenção"></div>
-          <h3>Preciso de Atenção</h3>
-          <p>Single · Punk pop, carência emocional e pouquíssima educação.</p>
-          <a href="https://open.spotify.com/track/64HTB0MpH9BEMI6SPQUR02?si=6ccb676c08cd43c9" target="_blank" rel="noopener">Ouvir →</a>
-        </div>
-        <div class="release">
+          <span class="release-tag">Favorito</span>
           <div class="cover"><img src="capa-estrela-principal.png" alt="Capa de Estrela Principal"></div>
           <h3>Estrela Principal</h3>
           <p>Single · Uma fantasia adolescente que demorou alguns anos demais para chegar ao streaming.</p>
           <a href="https://open.spotify.com/track/6JfZvc2FCIJTYVKrk594eO?si=89841f04d3cf4b8b" target="_blank" rel="noopener">Ouvir →</a>
         </div>
         <div class="release">
+          <span class="release-tag">Último lançamento</span>
+          <div class="cover"><img src="capa-preciso-de-atencao.png" alt="Capa de Preciso de Atenção"></div>
+          <h3>Preciso de Atenção</h3>
+          <p>Single · Punk pop, carência emocional e pouquíssima educação.</p>
+          <a href="https://open.spotify.com/track/64HTB0MpH9BEMI6SPQUR02?si=6ccb676c08cd43c9" target="_blank" rel="noopener">Ouvir →</a>
+        </div>
+        <div class="release">
+          <span class="release-tag next">Próxima</span>
           <div class="cover" role="img" aria-label="Espaço para próximo lançamento"></div>
-          <h3>Próxima</h3>
-          <p>Em produção · Está quase pronta. Essa frase pode deixar de ser verdade a qualquer momento.</p>
-          <a href="#contact">Acompanhar o problema →</a>
+          <h3>Em breve</h3>
+          <p>Está quase pronta. Essa frase pode deixar de ser verdade a qualquer momento.</p>
+          <a href="https://hypeddit.com/rigonandes" target="_blank" rel="noopener">Pré-save →</a>
         </div>
       </div>
 
@@ -293,9 +301,9 @@
         <span class="cat" aria-hidden="true">🐈‍⬛🪧</span>
         <div class="sign">
           <strong>Obra de caridade da semana</strong>
-          <p>Me segue aí no Spotify. Pede pra mãe, pra tia e pra avó também: todo streaming ajuda esse gato a comer melhor.</p>
+          <p>Me segue aí no Spotify. Pede pra mãe, pra tia e pra avó também — todo streaming ajuda esse gato a comer melhor. E de quebra você já vê a bagunça toda: discografia completa, sem curadoria, sem filtro.</p>
           <div class="hero-cta" style="margin-top:1rem;">
-            <a class="btn ghost" href="https://open.spotify.com/artist/64lVQN4YGTVH1kWjzH3ihj?si=8QQpZWOpTy-fGmpYpWFC1Q" target="_blank" rel="noopener">Seguir no Spotify →</a>
+            <a class="btn ghost" href="https://open.spotify.com/artist/64lVQN4YGTVH1kWjzH3ihj?si=8QQpZWOpTy-fGmpYpWFC1Q" target="_blank" rel="noopener">Ver discografia completa no Spotify →</a>
           </div>
         </div>
       </div>
