@@ -107,7 +107,22 @@
   .btn.ghost:hover{background:var(--cream); color:var(--bg);}
 
   .kicker{font-size:.8rem; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:.6rem;}
-  h2.section-title{font-size:clamp(2rem,5vw,3rem); max-width:700px; margin-bottom:2.5rem;}
+  h2.section-title{font-size:clamp(2rem,5vw,3rem); max-width:700px; margin-bottom:1.2rem;}
+
+  .story-intro{max-width:620px; opacity:.85; margin-bottom:2.5rem; font-size:1rem;}
+  .story-intro strong{color:var(--gold); font-weight:600;}
+
+  /* charity card */
+  .charity{
+    margin-top:3rem; border:1px dashed var(--line); padding:1.8rem;
+    display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap;
+  }
+  .charity .cat{font-size:2.8rem; line-height:1; flex:0 0 auto;}
+  .charity .sign{
+    flex:1 1 320px; min-width:0;
+  }
+  .charity .sign p{opacity:.85; font-size:.92rem; margin-top:.3rem;}
+  .charity .sign strong{font-family:'Fraunces',serif; font-size:1.1rem; display:block;}
 
   /* story timeline: punk -> symphony, real chronology so numbering is justified */
   #story{background:var(--bg-soft); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
@@ -183,14 +198,13 @@
         <div class="hero-text">
           <span class="eyebrow">Artista · Berlim / Brasil</span>
           <h1 class="title">Do <span class="punk">punk</span> de garagem<br>à <span class="gold">sinfonia.</span></h1>
-          <p class="hero-sub">Faço músicas há tempo suficiente para algumas delas já poderem reclamar da lombar. Rock, indie, punk, pop e o que mais fizer sentido no caminho. Algumas nasceram agora. Outras ficaram vinte anos esperando eu terminar o assunto. E o resto, sempre em construção</p>
+          <p class="hero-sub">Faço músicas há tempo suficiente para algumas delas já poderem reclamar da lombar. Rock, indie, punk, pop e o que mais fizer sentido no caminho. Algumas nasceram agora. Outras ficaram vinte anos esperando eu terminar o assunto. E o resto, sempre em construção.</p>
           <div class="hero-cta">
             <a class="btn solid" href="#music">Ouvir músicas</a>
             <a class="btn ghost" href="#story">Ver a trajetória</a>
           </div>
         </div>
-        <!-- Troque o div.empty abaixo por: </div> -->
-        <div class="hero-portrait"><img src="rigo.png" alt="Rigo Nandes">
+        <div class="hero-portrait"><img src="rigo.png" alt="Rigo Nandes"></div>
       </div>
     </div>
     <div class="wave-wrap" aria-hidden="true">
@@ -208,28 +222,39 @@
 
   <section id="story">
     <div class="wrap">
-      <p class="kicker">A jornada</p>
-      <h2 class="section-title">Uma discografia contada em fases</h2>
+      <p class="kicker">A história até agora</p>
+      <h2 class="section-title">Não havia exatamente um plano.</h2>
+      <p class="story-intro">Começou com guitarras, bandas, cadernos e a certeza adolescente de que três acordes resolviam quase tudo.<br>A certeza diminuiu. A quantidade de pistas no Ableton aumentou.</p>
       <div class="timeline">
         <div class="phase" data-n="1" style="--phase-color:#E63B2E;">
           <span class="years">Fase 1</span>
           <h3>Garagem</h3>
-          <p>Gravações cruas, distorcidas, feitas rápido e sem medo de errar. O ponto de partida: punk de garagem brasileiro, DIY até no som.</p>
+          <p>Guitarra, distorção, punk e pouca preocupação com elegância. A ideia era fazer barulho antes que alguém tivesse tempo de impedir.<br>As prioridades também eram simples: passar de ano e pegar garotas. De preferência mais garotas.</p>
         </div>
-        <div class="phase" data-n="2" style="--phase-color:#D97A25;">
+        <div class="phase" data-n="2" style="--phase-color:#D9622C;">
           <span class="years">Fase 2</span>
-          <h3>Bubblegum</h3>
-          <p>Melodias mais doces entram na mistura, sem perder a atitude — a fase em que o pop e o punk começam a negociar.</p>
+          <h3>Melodia entrou sem autorização</h3>
+          <p>Em algum momento apareceram refrões, harmonias mais doces e a suspeita desconfortável de que talvez eu gostasse de pop.<br>O punk sobreviveu. Foi morar no porão.</p>
         </div>
-        <div class="phase" data-n="3" style="--phase-color:#C9A227;">
+        <div class="phase" data-n="3" style="--phase-color:#CC7B2A;">
           <span class="years">Fase 3</span>
-          <h3>Camadas</h3>
-          <p>Produção mais elaborada, arranjos mais ambiciosos. O som cresce, mas a raiz continua a mesma.</p>
+          <h3>Contra o sistema. E outras abstrações.</h3>
+          <p>Veio o indie rock, um pouco de rebeldia, alguma indignação com o mundo e bastante tempero existencial.<br>Eu tinha algumas respostas. A maioria estava errada. As guitarras, não necessariamente.</p>
         </div>
-        <div class="phase" data-n="4" style="--phase-color:#8FA37E;">
+        <div class="phase" data-n="4" style="--phase-color:#BF9428;">
+          <span class="years">Fase 4</span>
+          <h3>Bossa, indie e iluminação parcial</h3>
+          <p>Teve violão, bossa, indie, alguma psicodelia, espiritualidade e uma quantidade razoável de contemplação.<br>Foi uma fase mais leve. Mais hipster também. Foi bom enquanto durou.</p>
+        </div>
+        <div class="phase" data-n="5" style="--phase-color:#C9A227;">
+          <span class="years">Fase 5</span>
+          <h3>Mais camadas do que o necessário</h3>
+          <p>Arranjos maiores, instrumentos novos e aquela fase inevitável em que uma música de três minutos começa a exigir quarenta pistas.<br>Às vezes melhora. Às vezes só fica mais difícil de abrir no Ableton.</p>
+        </div>
+        <div class="phase" data-n="6" style="--phase-color:#8FA37E;">
           <span class="years">Fase atual</span>
-          <h3>Sinfonia</h3>
-          <p>108 faixas depois, o projeto mira em algo maior: arranjos orquestrais nascidos de um garoto que só queria fazer barulho.</p>
+          <h3>Ainda descobrindo</h3>
+          <p>Cordas, arranjos maiores, música brasileira, indie, rock, eletrônica e qualquer outra coisa que consiga entrar sem destruir a canção.<br>O objetivo continua aproximadamente o mesmo: fazer alguma coisa que eu queira ouvir de novo amanhã.<br><strong style="color:var(--gold); font-weight:600;">Ainda não cheguei lá.</strong></p>
         </div>
       </div>
     </div>
@@ -237,26 +262,38 @@
 
   <section id="music">
     <div class="wrap">
-      <p class="kicker">Discografia</p>
-      <h2 class="section-title">Últimos lançamentos</h2>
+      <p class="kicker">Músicas</p>
+      <h2 class="section-title">Algumas já escaparam.</h2>
+      <p class="story-intro">Essas são as que conseguiram sair do computador.</p>
       <div class="release-grid">
         <div class="release">
           <div class="cover" role="img" aria-label="Capa de Preciso de Atenção"></div>
           <h3>Preciso de Atenção</h3>
-          <p>Single</p>
-          <a href="#contact">Ouvir no streaming →</a>
+          <p>Single · Punk pop, carência emocional e pouquíssima educação.</p>
+          <a href="https://open.spotify.com/track/64HTB0MpH9BEMI6SPQUR02?si=6ccb676c08cd43c9" target="_blank" rel="noopener">Ouvir →</a>
         </div>
         <div class="release">
-          <div class="cover" role="img" aria-label="Capa de Filme Amador"></div>
-          <h3>Filme Amador</h3>
-          <p>Single</p>
-          <a href="#contact">Ouvir no streaming →</a>
+          <div class="cover" role="img" aria-label="Capa de Estrela Principal"></div>
+          <h3>Estrela Principal</h3>
+          <p>Single · Uma fantasia adolescente que demorou alguns anos demais para chegar ao streaming.</p>
+          <a href="https://open.spotify.com/track/6JfZvc2FCIJTYVKrk594eO?si=89841f04d3cf4b8b" target="_blank" rel="noopener">Ouvir →</a>
         </div>
         <div class="release">
           <div class="cover" role="img" aria-label="Espaço para próximo lançamento"></div>
-          <h3>Próximo lançamento</h3>
-          <p>Em produção</p>
-          <a href="#contact">Fique por dentro →</a>
+          <h3>Próxima</h3>
+          <p>Em produção · Está quase pronta. Essa frase pode deixar de ser verdade a qualquer momento.</p>
+          <a href="#contact">Acompanhar o problema →</a>
+        </div>
+      </div>
+
+      <div class="charity">
+        <span class="cat" aria-hidden="true">🐈‍⬛🪧</span>
+        <div class="sign">
+          <strong>Obra de caridade da semana</strong>
+          <p>Me segue aí no Spotify. Pede pra mãe, pra tia e pra avó também — todo streaming ajuda esse gato a comer melhor.</p>
+          <div class="hero-cta" style="margin-top:1rem;">
+            <a class="btn ghost" href="https://open.spotify.com/artist/64lVQN4YGTVH1kWjzH3ihj?si=8QQpZWOpTy-fGmpYpWFC1Q" target="_blank" rel="noopener">Seguir no Spotify →</a>
+          </div>
         </div>
       </div>
     </div>
@@ -264,14 +301,13 @@
 
   <section id="label">
     <div class="wrap">
-      <p class="kicker">Casa</p>
-      <h2 class="section-title">Lançado pela Red Fox Records</h2>
+      <p class="kicker">A toca</p>
+      <h2 class="section-title">Red Fox Records</h2>
       <div class="label-card">
         <div>
-          <h3>Red Fox Records</h3>
-          <p>Selo independente de punk e bubblegum brasileiro — DIY, cru, sem verniz de estúdio caro.</p>
+          <p>Projeto independente entre Berlim e Brasil para música que ainda parece ter sido feita por gente. Rock, indie, punk, psicodelia, MPB alternativa e outras coisas difíceis de explicar em quinze segundos.<br>Sem grandes corporações. Também sem uma pequena corporação, por enquanto.</p>
         </div>
-        <a class="btn ghost" href="../red-fox-records/">Conhecer o selo →</a>
+        <a class="btn ghost" href="../red-fox-records/">Conhecer a Red Fox →</a>
       </div>
     </div>
   </section>
@@ -279,12 +315,12 @@
   <section id="contact">
     <div class="wrap">
       <p class="kicker">Contato</p>
-      <h2 class="section-title">Fala com o Rigo</h2>
-      <p style="max-width:520px; opacity:.85;">Para shows, parcerias ou só pra dizer oi.</p>
+      <h2 class="section-title">Pode falar.</h2>
+      <p style="max-width:520px; opacity:.85;">Shows, parcerias, música, ideias ou alguma mensagem estranhamente específica que você decidiu mandar para um desconhecido da internet. Eu provavelmente respondo.<br><br>Se for golpe de criptomoeda, podemos economizar o tempo dos dois.</p>
       <div class="contact-links">
         <a href="mailto:contato@rigonandes.com">Email</a>
         <a href="#" target="_blank" rel="noopener">Instagram</a>
-        <a href="#" target="_blank" rel="noopener">Spotify</a>
+        <a href="https://open.spotify.com/artist/64lVQN4YGTVH1kWjzH3ihj?si=8QQpZWOpTy-fGmpYpWFC1Q" target="_blank" rel="noopener">Spotify</a>
         <a href="#" target="_blank" rel="noopener">YouTube</a>
       </div>
     </div>
@@ -293,12 +329,10 @@
 </main>
 
 <footer>
-  © <span id="year"></span> Rigo Nandes · Red Fox Records
+  Rigo Nandes · músicas, ideias e manutenção constante de arquivos do Ableton.
 </footer>
 
 <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-
   const toggle = document.getElementById('navToggle');
   const links = document.getElementById('navLinks');
   toggle.addEventListener('click', () => {
