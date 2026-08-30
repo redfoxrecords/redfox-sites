@@ -145,8 +145,11 @@
   .release{border:1px solid var(--line); padding:1.3rem; transition:border-color .15s;}
   .release:hover{border-color:var(--gold);}
   .release .cover{
-    aspect-ratio:1/1; margin-bottom:1rem;
+    aspect-ratio:1/1; margin-bottom:1rem; overflow:hidden;
     background:linear-gradient(135deg, var(--punk), var(--gold));
+  }
+  .release .cover img{
+    width:100%; height:100%; object-fit:cover; display:block;
   }
   .release h3{font-size:1.1rem; font-family:'Inter',sans-serif; font-weight:600;}
   .release p{font-size:.82rem; opacity:.7; margin-top:.3rem;}
@@ -267,13 +270,13 @@
       <p class="story-intro">Essas são as que conseguiram sair do computador.</p>
       <div class="release-grid">
         <div class="release">
-          <div class="cover" role="img" aria-label="Capa de Preciso de Atenção"></div>
+          <div class="cover"><img src="capa-preciso-de-atencao.jpg" alt="Capa de Preciso de Atenção"></div>
           <h3>Preciso de Atenção</h3>
           <p>Single · Punk pop, carência emocional e pouquíssima educação.</p>
           <a href="https://open.spotify.com/track/64HTB0MpH9BEMI6SPQUR02?si=6ccb676c08cd43c9" target="_blank" rel="noopener">Ouvir →</a>
         </div>
         <div class="release">
-          <div class="cover" role="img" aria-label="Capa de Estrela Principal"></div>
+          <div class="cover"><img src="capa-estrela-principal.jpg" alt="Capa de Estrela Principal"></div>
           <h3>Estrela Principal</h3>
           <p>Single · Uma fantasia adolescente que demorou alguns anos demais para chegar ao streaming.</p>
           <a href="https://open.spotify.com/track/6JfZvc2FCIJTYVKrk594eO?si=89841f04d3cf4b8b" target="_blank" rel="noopener">Ouvir →</a>
@@ -314,14 +317,23 @@
 
   <section id="contact">
     <div class="wrap">
-      <p class="kicker">Contato</p>
-      <h2 class="section-title">Pode falar.</h2>
-      <p style="max-width:520px; opacity:.85;">Shows, parcerias, música, ideias ou alguma mensagem estranhamente específica que você decidiu mandar para um desconhecido da internet. Eu provavelmente respondo.<br><br>Se for golpe de criptomoeda, podemos economizar o tempo dos dois.</p>
-      <div class="contact-links">
-        <a href="mailto:contato@rigonandes.com">Email</a>
-        <a href="#" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://open.spotify.com/artist/64lVQN4YGTVH1kWjzH3ihj?si=8QQpZWOpTy-fGmpYpWFC1Q" target="_blank" rel="noopener">Spotify</a>
-        <a href="#" target="_blank" rel="noopener">YouTube</a>
+      <div class="hero-grid">
+        <div class="hero-text">
+          <p class="kicker">Contato</p>
+          <h2 class="section-title">Pode falar.</h2>
+          <p style="max-width:520px; opacity:.85;">Shows, parcerias, música, ideias ou alguma mensagem estranhamente específica que você decidiu mandar para um desconhecido da internet. Eu provavelmente respondo.<br><br>Se for golpe de criptomoeda, podemos economizar o tempo dos dois.</p>
+          <div class="contact-links">
+            <a href="mailto:redfoxstudios.eu@gmail.com">Email</a>
+            <a href="https://instagram.com/rigonandes" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://open.spotify.com/artist/64lVQN4YGTVH1kWjzH3ihj?si=8QQpZWOpTy-fGmpYpWFC1Q" target="_blank" rel="noopener">Spotify</a>
+            <a href="https://youtube.com/@rigonandes" target="_blank" rel="noopener">YouTube</a>
+            <a href="https://tiktok.com/@rigonandes" target="_blank" rel="noopener">TikTok</a>
+            <a href="https://soundcloud.com/rigonandes" target="_blank" rel="noopener">SoundCloud</a>
+            <a href="https://rigonandes.bandcamp.com" target="_blank" rel="noopener">Bandcamp</a>
+          </div>
+        </div>
+        <!-- Troque src="contato.jpg" pelo nome do arquivo de imagem que você subir nesta pasta -->
+        <div class="hero-portrait"><img src="contato.jpg" alt=""></div>
       </div>
     </div>
   </section>
