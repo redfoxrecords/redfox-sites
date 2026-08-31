@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Red Fox Records — independent music curation</title>
+<meta name="description" content="Red Fox Records: independent music curation project connecting Brazilian music, alternative scenes and emerging artists through Spotify playlists.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EDE6D6;
+    --paper-dark:#E2D9C4;
+    --ink:#1A1610;
+    --fox:#C1440E;
+    --teal:#3E6259;
+    --toner:#E8B93E;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Space Mono', monospace;
+    line-height:1.5;
+    background-image:
+      radial-gradient(circle, rgba(26,22,16,0.06) 1px, transparent 1px);
+    background-size:6px 6px;
+  }
+  h1,h2,h3{font-family:'Anton', sans-serif; text-transform:uppercase; letter-spacing:0.5px;}
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+
+  /* skip link */
+  .skip-link{position:absolute; left:-999px; top:0; background:var(--ink); color:var(--paper); padding:.6rem 1rem; z-index:100;}
+  .skip-link:focus{left:1rem; top:1rem;}
+
+  /* nav */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:var(--ink);
+    border-bottom:4px solid var(--fox);
+  }
+  nav{
+    max-width:1100px; margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:.9rem 1.25rem;
+  }
+  .logo{
+    font-family:'Anton', sans-serif;
+    color:var(--paper);
+    font-size:1.3rem;
+    display:flex; align-items:center; gap:.5rem;
+    transform:rotate(-1.5deg);
+  }
+  .logo span{color:var(--fox);}
+  .navlinks{display:flex; gap:1.4rem; list-style:none;}
+  .navlinks a{
+    color:var(--paper); text-decoration:none;
+    font-size:.85rem; text-transform:uppercase; letter-spacing:1px;
+    padding-bottom:3px; border-bottom:2px solid transparent;
+    transition:border-color .15s;
+  }
+  .navlinks a:hover, .navlinks a:focus-visible, .navlinks a.active{border-color:var(--fox);}
+  .navtoggle{display:none; background:none; border:2px solid var(--paper); color:var(--paper); font-size:1.2rem; padding:.3rem .6rem;}
+
+  @media (max-width:680px){
+    .navlinks{
+      position:fixed; inset:56px 0 auto 0; background:var(--ink);
+      flex-direction:column; padding:1rem 1.25rem; gap:1rem;
+      transform:translateY(-120%); transition:transform .2s ease;
+      border-bottom:4px solid var(--fox);
+    }
+    .navlinks.open{transform:translateY(0);}
+    .navtoggle{display:block;}
+  }
+
+  section{padding:5rem 1.25rem;}
+  .wrap{max-width:1100px; margin:0 auto;}
+
+  /* hero */
+  #home{
+    padding-top:6rem; padding-bottom:6rem;
+    position:relative; overflow:hidden;
+  }
+  .tape{
+    position:absolute; background:var(--toner); opacity:.85;
+    height:34px; width:150px;
+    box-shadow:0 2px 4px rgba(0,0,0,.25);
+  }
+  .tape.t1{top:30px; left:-20px; transform:rotate(-8deg);}
+  .tape.t2{top:70px; right:-30px; transform:rotate(6deg);}
+  .hero-inner{position:relative; z-index:2; max-width:720px;}
+  .eyebrow{
+    display:inline-block; background:var(--fox); color:var(--paper);
+    font-size:.75rem; letter-spacing:2px; padding:.35rem .7rem;
+    transform:rotate(-2deg); margin-bottom:1.4rem;
+  }
+  h1.title{
+    font-size:clamp(2.6rem, 7vw, 5rem);
+    line-height:.95;
+    color:var(--ink);
+    -webkit-text-stroke:1px var(--ink);
+  }
+  h1.title .accent{color:var(--fox);}
+  .hero-sub{
+    margin-top:1.4rem; font-size:1.05rem; max-width:520px;
+    border-left:4px solid var(--teal); padding-left:1rem;
+  }
+  .hero-cta{
+    margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-block; text-decoration:none;
+    font-family:'Anton', sans-serif; text-transform:uppercase;
+    background:var(--ink); color:var(--paper);
+    padding:.85rem 1.5rem; border:3px solid var(--ink);
+    transition:transform .12s ease, background .12s ease;
+  }
+  .btn:hover{transform:translate(-2px,-2px); background:var(--fox); border-color:var(--fox);}
+  .btn.outline{background:transparent; color:var(--ink);}
+  .btn.outline:hover{background:var(--ink); color:var(--paper);}
+
+  /* section headings */
+  .kicker{
+    font-size:.8rem; letter-spacing:2px; color:var(--fox); margin-bottom:.5rem;
+  }
+  h2.section-title{font-size:clamp(2rem,5vw,3.2rem); margin-bottom:2rem;}
+
+  /* about, torn card */
+  .card{
+    background:var(--paper-dark); border:3px solid var(--ink);
+    padding:2rem; box-shadow:8px 8px 0 var(--ink);
+  }
+  #about .grid{
+    display:grid; grid-template-columns:1.1fr .9fr; gap:2.5rem; align-items:start;
+  }
+  @media (max-width:800px){ #about .grid{grid-template-columns:1fr;} }
+  .stat-row{display:flex; gap:1.5rem; margin-top:1.5rem; flex-wrap:wrap;}
+  .stat{border:2px solid var(--ink); padding:.9rem 1.1rem; background:var(--paper);}
+  .stat b{display:block; font-family:'Anton',sans-serif; font-size:1.6rem; color:var(--fox);}
+  .stat span{font-size:.75rem; text-transform:uppercase; letter-spacing:1px;}
+
+  /* releases */
+  #releases{background:var(--ink); color:var(--paper);}
+  #releases .kicker{color:var(--toner);}
+  .release-grid{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:1.5rem; margin-top:2rem;
+  }
+  .release{
+    background:var(--paper); color:var(--ink); border:3px solid var(--paper);
+    padding:1.2rem; position:relative;
+  }
+  .release .cover{
+    aspect-ratio:1/1; background:repeating-linear-gradient(45deg,var(--fox),var(--fox) 10px,var(--toner) 10px,var(--toner) 20px);
+    margin-bottom:1rem; border:2px solid var(--ink); overflow:hidden;
+  }
+  .release .cover img{width:100%; height:100%; object-fit:cover; display:block;}
+  .release h3{font-size:1.1rem;}
+  .release p{font-size:.8rem; margin-top:.3rem; opacity:.85;}
+  .release a{font-size:.75rem; text-decoration:underline; display:inline-block; margin-top:.6rem;}
+
+  /* artists */
+  #artists .artist-list{margin-top:2rem; display:grid; gap:1rem;}
+  .artist-row{
+    display:flex; justify-content:space-between; align-items:center;
+    border-bottom:2px dashed var(--ink); padding:1rem 0; gap:1rem; flex-wrap:wrap;
+  }
+  .artist-row h3{font-size:1.3rem;}
+  .artist-row a{font-size:.8rem; white-space:nowrap;}
+
+  /* contact */
+  #contact{background:var(--fox); color:var(--paper);}
+  #contact .kicker{color:var(--ink);}
+  #contact h2{color:var(--paper);}
+  .contact-links{display:flex; gap:1.2rem; flex-wrap:wrap; margin-top:1.5rem;}
+  .contact-links a{
+    background:var(--ink); color:var(--paper); text-decoration:none;
+    padding:.7rem 1.2rem; font-size:.85rem; text-transform:uppercase; letter-spacing:1px;
+    border:2px solid var(--paper);
+  }
+  .contact-links a:hover{background:var(--paper); color:var(--ink);}
+
+  /* logo mark */
+  .logo{
+    display:flex; align-items:center; gap:.6rem;
+    font-family:'Anton', sans-serif; color:var(--paper); font-size:1.3rem;
+    text-decoration:none;
+  }
+  .logo-mark{
+    width:38px; height:38px; border-radius:50%; flex:0 0 auto;
+    background:var(--fox); border:2px solid var(--toner);
+    display:flex; align-items:center; justify-content:center;
+    overflow:hidden;
+  }
+  .logo-mark img{width:100%; height:100%; object-fit:cover; border-radius:50%;}
+  .logo-mark span{font-size:.6rem; color:var(--paper); letter-spacing:.5px;}
+  .logo-word{transform:rotate(-1.5deg);}
+  .logo-word span{color:var(--fox);}
+
+  /* flagship badge */
+  .flag-badge{
+    display:inline-block; background:var(--toner); color:var(--ink);
+    font-family:'Anton', sans-serif; font-size:.7rem; letter-spacing:1px;
+    padding:.25rem .6rem; margin-bottom:.7rem;
+  }
+
+  /* artist picks */
+  #picks .picks-grid{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.5rem; margin-top:2rem;
+  }
+  .pick{border:2px dashed var(--ink); padding:1.3rem;}
+  .pick h3{font-size:1.05rem; text-transform:none; letter-spacing:0;}
+  .pick .genre{font-size:.7rem; letter-spacing:1px; text-transform:uppercase; color:var(--fox); margin-top:.3rem; display:block;}
+  .pick p{font-size:.85rem; margin-top:.6rem; opacity:.85;}
+  .pick a{font-size:.75rem; text-decoration:underline; display:inline-block; margin-top:.7rem;}
+
+  /* submission note */
+  .sub-note{
+    margin-top:2rem; border-top:2px solid var(--ink); padding-top:1.5rem;
+    font-size:.85rem; max-width:560px; opacity:.9;
+  }
+
+  footer{
+    background:var(--ink); color:var(--paper-dark); text-align:center;
+    padding:1.5rem; font-size:.75rem; letter-spacing:1px;
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#home">Skip to content</a>
+
+<header>
+  <nav aria-label="Main navigation">
+    <a href="#home" class="logo">
+      <!-- Replace the placeholder span below with: <img src="logo.png" alt="Red Fox Records logo"> -->
+      <span class="logo-mark"><span>LOGO</span></span>
+      <span class="logo-word">RED <span>FOX</span> RECORDS</span>
+    </a>
+    <button class="navtoggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">☰</button>
+    <ul class="navlinks" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#releases">Playlists</a></li>
+      <li><a href="#picks">Picks</a></li>
+      <li><a href="#contact">Submit</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <section id="home">
+    <div class="tape t1" aria-hidden="true"></div>
+    <div class="tape t2" aria-hidden="true"></div>
+    <div class="wrap hero-inner">
+      <span class="eyebrow">Independent music curation · Berlin / Brazil</span>
+      <h1 class="title">Music worth <span class="accent">finding.</span></h1>
+      <p class="hero-sub">Red Fox Records is an independent music curation project connecting Brazilian music, alternative scenes and emerging artists through carefully built Spotify playlists.</p>
+      <div class="hero-cta">
+        <a class="btn" href="#releases">Explore playlists</a>
+        <a class="btn outline" href="#contact">Submit music</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <p class="kicker">About</p>
+      <h2 class="section-title">Built by listening</h2>
+      <div class="grid">
+        <div class="card">
+          <p>Red Fox Records is an independent music curation project born between Berlin and Brazil. We build genre-focused Spotify playlists, rediscover overlooked tracks and give emerging artists a place alongside established names.</p>
+          <p style="margin-top:1rem;">Every selection is editorial. No paid placement. No guaranteed spots. No bots, follow-gates or artificial growth. Just music we believe belongs there.</p>
+          <p style="margin-top:1rem;">We like songs with identity — whether they come from a bedroom, a rehearsal room or an established catalogue.</p>
+        </div>
+        <div>
+          <div class="stat-row">
+            <div class="stat"><b>1.5K+</b><span>flagship playlist saves</span></div>
+            <div class="stat"><b>3</b><span>editorial playlists</span></div>
+            <div class="stat"><b>DE/BR</b><span>Berlin · Brazil</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="releases">
+    <div class="wrap">
+      <p class="kicker">Curation</p>
+      <h2 class="section-title">Playlists</h2>
+      <div class="release-grid">
+        <div class="release">
+          <span class="flag-badge">Flagship · 1.5K+ saves</span>
+          <div class="cover"><img src="https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da843a30e843fbe5f71f69da6406" alt="Rock Brasileiro 2000s playlist cover"></div>
+          <h3>Rock Brasileiro 2000s</h3>
+          <p>Brazilian rock from the 2000s and the new generation carrying that sound forward. Charlie Brown Jr., CPM 22, Raimundos, Skank and independent discoveries.</p>
+          <a href="https://open.spotify.com/playlist/1PaSvvdqt8kBBbMGPSeL6E?si=2d27a6d612be45bf" target="_blank" rel="noopener">Listen on Spotify →</a>
+        </div>
+        <div class="release">
+          <div class="cover"><img src="https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da849270360548551695b208e9a0" alt="Saudade em FM playlist cover"></div>
+          <h3>Saudade em FM</h3>
+          <p>Brazilian pop rock from the 80s to today. Familiar choruses, overlooked songs and a new generation joining the story.</p>
+          <a href="https://open.spotify.com/playlist/5EjgLjqKz70tq25yECo2cT?si=5fe3863072c54383" target="_blank" rel="noopener">Listen on Spotify →</a>
+        </div>
+        <div class="release">
+          <div class="cover"><img src="https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da845b32c2ef03fb770702448648" alt="Goth Therapy playlist cover"></div>
+          <h3>Goth Therapy</h3>
+          <p>Post-punk, darkwave and coldwave. Like the weather in Berlin.</p>
+          <a href="https://open.spotify.com/playlist/4RAnEuUSR8ijZtuOggsBv1?si=74d2627690ce460a" target="_blank" rel="noopener">Listen on Spotify →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="picks">
+    <div class="wrap">
+      <p class="kicker">Discoveries</p>
+      <h2 class="section-title">Recent Red Fox Picks</h2>
+      <!-- More picks can be added here as artists get featured. -->
+      <div class="picks-grid">
+        <div class="pick">
+          <h3>AURA... — Objetos Mudos</h3>
+          <span class="genre">Brazil · Indie / Post-Grunge</span>
+          <p>Distorted guitars and a 2000s alt-rock backbone from a band still putting out records two decades in.</p>
+          <a href="https://open.spotify.com/artist/7GfAuKw34g8OIW3YOHxwVM" target="_blank" rel="noopener">Listen →</a>
+        </div>
+        <div class="pick">
+          <h3>Signo Solar — Brilhar a Minha Estrela (Dá Mais Um)</h3>
+          <span class="genre">Brazil · Pop Rock</span>
+          <p>Anthemic hooks and radio-ready choruses, squarely in the Brazilian pop rock tradition.</p>
+          <a href="https://open.spotify.com/artist/4iXn2pi4sVdcbzLoYrx3wl" target="_blank" rel="noopener">Listen →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <p class="kicker">Get involved</p>
+      <h2 class="section-title">Submit your music</h2>
+      <p style="max-width:520px;">Independent artists are welcome. We listen to every submission and select tracks according to each playlist's editorial direction.</p>
+      <p style="max-width:520px; margin-top:.8rem; font-weight:bold;">Submission is free. Placement is never sold or guaranteed.</p>
+      <p style="max-width:520px; margin-top:.8rem;">Send us a streaming link and a short introduction via Instagram or email.</p>
+      <div class="contact-links">
+        <a href="mailto:redfoxstudios.eu@gmail.com">Email</a>
+        <a href="https://instagram.com/redfox.berlin" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://facebook.com/redfox.berlin" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://open.spotify.com/user/31jau2qunguhhfahpnlb35d4iv7m?si=5e0650aff6664642" target="_blank" rel="noopener">Spotify</a>
+      </div>
+      <div class="sub-note">
+        <strong>Submission guidelines</strong><br>
+        We prioritize music performed and produced by real artists. AI can be part of the creative process, but fully AI-generated final productions are outside our editorial line.
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © <span id="year"></span> Red Fox Records — independent music curation.
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // mobile nav toggle
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    links.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  // active link highlight on scroll
+  const sections = document.querySelectorAll('main section[id]');
+  const navA = document.querySelectorAll('.navlinks a');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navA.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+      }
+    });
+  }, { rootMargin: '-45% 0px -45% 0px' });
+  sections.forEach(s => obs.observe(s));
+</script>
+</body>
+</html>
