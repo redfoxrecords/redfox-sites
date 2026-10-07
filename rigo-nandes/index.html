@@ -141,6 +141,19 @@
   .photos img{width:100%; height:100%; object-fit:cover; display:block; border:1px solid var(--gold);}
   .photos .wide{grid-column:span 1;}
   .photo-cap{margin-top:1rem; opacity:.85; font-size:.92rem; font-style:italic; max-width:640px;}
+    /* links */
+  .linkgrid{margin-top:2rem; display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:.8rem;}
+  .linkgrid a{display:flex; align-items:center; justify-content:space-between; gap:.5rem; padding:1rem 1.2rem; border:1px solid var(--gold); color:var(--cream); text-decoration:none; font-weight:600; transition:background .15s,color .15s;}
+  .linkgrid a:hover{background:var(--cream); color:var(--bg);}
+  .linkgrid a.main{background:var(--punk); border-color:var(--punk);}
+  .linkgrid a.main:hover{background:var(--cream); border-color:var(--cream);}
+  .embed{margin-top:2rem; max-width:640px;}
+  .embed iframe{width:100%; border:0; border-radius:12px;}
+  .disco{margin-top:2rem; list-style:none; padding:0; max-width:640px;}
+  .disco li{border-bottom:1px solid rgba(241,237,228,.15);}
+  .disco a{display:flex; justify-content:space-between; padding:.8rem 0; color:var(--cream); text-decoration:none;}
+  .disco a:hover{color:var(--gold);}
+  .disco span{opacity:.6; font-size:.85rem;}
   /* story timeline: punk -> symphony, real chronology so numbering is justified */
   #story{background:var(--bg-soft); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
   .timeline{position:relative; padding-left:2rem; border-left:2px solid var(--line);}
@@ -209,6 +222,7 @@
       <li><a href="#home">Início</a></li>
       <li><a href="#story">Trajetória</a></li>
       <li><a href="#music">Música</a></li>
+      <li><a href="#links">Links</a></li>
       <li><a href="#label">Selo</a></li>
       <li><a href="#contact">Contato</a></li>
     </ul>
@@ -350,6 +364,31 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section id="links">
+    <div class="wrap">
+      <p class="kicker">Me siga</p>
+      <h2 class="section-title">Todos os caminhos levam a mim.</h2>
+      <p class="story-intro">Escolhe a plataforma. Segue, ouve, compartilha. O algoritmo agradece e eu também.</p>
+      <div class="linkgrid">
+        <a class="main" href="https://open.spotify.com/artist/64lVQN4YGTVH1kWjzH3ihj" target="_blank" rel="noopener">Seguir no Spotify <span>→</span></a>
+        <a href="https://instagram.com/rigonandes" target="_blank" rel="noopener">Instagram <span>→</span></a>
+        <a href="https://youtube.com/@rigonandes" target="_blank" rel="noopener">YouTube <span>→</span></a>
+        <a href="https://tiktok.com/@rigonandes" target="_blank" rel="noopener">TikTok <span>→</span></a>
+        <a href="https://soundcloud.com/rigonandes" target="_blank" rel="noopener">SoundCloud <span>→</span></a>
+        <a href="https://rigonandes.bandcamp.com" target="_blank" rel="noopener">Bandcamp <span>→</span></a>
+      </div>
+      <div class="embed">
+        <iframe src="https://open.spotify.com/embed/artist/64lVQN4YGTVH1kWjzH3ihj" height="352" allow="encrypted-media; clipboard-write" loading="lazy" title="Rigo Nandes no Spotify"></iframe>
+      </div>
+      <ul class="disco">
+        <li><a href="https://open.spotify.com/album/1JpsYflDzo4X7AQA2xamGb" target="_blank" rel="noopener">Todo Dia <span>Single</span></a></li>
+        <li><a href="https://open.spotify.com/album/7KQwXfBXriHAnfn1BbrPI0" target="_blank" rel="noopener">Preciso de Atenção <span>Single</span></a></li>
+        <li><a href="https://open.spotify.com/album/2bE6PqWTO9zSonRGCN3sLB" target="_blank" rel="noopener">Estrela Principal <span>Single</span></a></li>
+        <li><a href="https://open.spotify.com/album/3WOfPnOnevNuBCDprooVMu" target="_blank" rel="noopener">Nunca Quis. Nada Vai <span>Single</span></a></li>
+      </ul>
     </div>
   </section>
 
