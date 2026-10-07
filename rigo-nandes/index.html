@@ -124,6 +124,18 @@
   .charity .sign p{opacity:.85; font-size:.92rem; margin-top:.3rem;}
   .charity .sign strong{font-family:'Fraunces',serif; font-size:1.1rem; display:block;}
 
+
+  /* donation card */
+  .donate{
+    margin-top:2rem; border:1px solid var(--gold); padding:1.8rem;
+    display:flex; align-items:center; gap:2rem; flex-wrap:wrap;
+  }
+  .donate .qr{flex:0 0 auto; width:170px; background:#F1EDE4; padding:8px;}
+  .donate .qr img{width:100%; height:auto; display:block;}
+  .donate .text{flex:1 1 320px; min-width:0;}
+  .donate .text strong{font-family:'Fraunces',serif; font-size:1.2rem; display:block; margin-bottom:.4rem;}
+  .donate .text p{opacity:.85; font-size:.92rem; margin-top:.5rem;}
+
   /* story timeline: punk -> symphony, real chronology so numbering is justified */
   #story{background:var(--bg-soft); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
   .timeline{position:relative; padding-left:2rem; border-left:2px solid var(--line);}
@@ -304,6 +316,19 @@
           <p>Me segue aí no Spotify. Pede pra mãe, pra tia e pra avó também. Todo streaming ajuda esse gato a comer melhor. E de quebra você já vê a bagunça toda: discografia completa, sem curadoria, sem filtro.</p>
           <div class="hero-cta" style="margin-top:1rem;">
             <a class="btn ghost" href="https://open.spotify.com/artist/64lVQN4YGTVH1kWjzH3ihj?si=8QQpZWOpTy-fGmpYpWFC1Q" target="_blank" rel="noopener">Ver discografia completa no Spotify →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="donate">
+        <div class="qr"><img src="qr-doacao-graacc.png" alt="QR code para doar ao GRAACC" width="170" height="170"></div>
+        <div class="text">
+          <strong>Não compre nada de mim.</strong>
+          <p>Seu dinheiro tem destino melhor. O Hospital do GRAACC é referência no tratamento do câncer infantojuvenil, com índice médio de cura de 80%. Doe para o tratamento das crianças em vez de me apoiar.</p>
+          <p>A doação vai direto para o GRAACC. Eu não vejo nem um centavo.</p>
+          <div class="hero-cta" style="margin-top:1rem;">
+            <a class="btn solid" href="https://www.paypal.com/ncp/payment/YRDRH5X9XNHHA" target="_blank" rel="noopener">Doar ao GRAACC →</a>
+            <a class="btn ghost" href="https://graacc.org.br" target="_blank" rel="noopener">Conhecer o GRAACC</a>
           </div>
         </div>
       </div>
